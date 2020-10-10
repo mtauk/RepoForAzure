@@ -1,0 +1,2 @@
+# RepoForAzure
+Only for Azure 
