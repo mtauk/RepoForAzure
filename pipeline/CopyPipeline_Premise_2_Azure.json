@@ -4,7 +4,7 @@
 		"description": "CopyPipeline_Premise_2_Azure",
 		"activities": [
 			{
-				"name": "Copy_Data_from_Premise_to_Azure",
+				"name": "Copy - premise to azure",
 				"description": "Copy_Data_from_Premise_to_Azure",
 				"type": "Copy",
 				"dependsOn": [],
