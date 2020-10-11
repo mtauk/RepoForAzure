@@ -60,6 +60,7 @@
 						"typeProperties": {
 							"source": {
 								"type": "SqlServerSource",
+								"sqlReaderQuery": "SELECT * FROM dbo.listings\nWHERE id IN (N'123','124','125')",
 								"partitionOption": "None"
 							},
 							"sink": {
