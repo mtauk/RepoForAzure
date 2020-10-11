@@ -68,8 +68,7 @@
 								"partitionOption": "None"
 							},
 							"sink": {
-								"type": "AzureSqlSink",
-								"tableOption": "autoCreate"
+								"type": "AzureSqlSink"
 							},
 							"enableStaging": false,
 							"validateDataConsistency": false,
@@ -167,9 +166,11 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "AzureSqlTable3",
+								"referenceName": "DestinationDataset_bol",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"table": "listings_d"
+								}
 							}
 						]
 					}
@@ -178,7 +179,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/SourceDataset_bol')]",
-				"[concat(variables('factoryId'), '/datasets/AzureSqlTable3')]"
+				"[concat(variables('factoryId'), '/datasets/DestinationDataset_bol')]"
 			]
 		},
 		{
@@ -357,27 +358,6 @@
 				}
 			},
 			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlTable3')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabase2",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "listings"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase2')]"
-			]
 		}
 	]
 }
