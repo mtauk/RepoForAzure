@@ -6,26 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "df-copy-premise-2-azure"
-		},
-		"AzureSqlDatabase_DB01_MT_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase_DB01_MT'"
-		},
-		"SqlServer_mtaluk_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'SqlServer_mtaluk'"
-		},
-		"SqlServer_mtaluk_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'SqlServer_mtaluk'"
-		},
-		"AzureSqlDatabase2_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase2'"
-		},
-		"SqlServer_mtaluk_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "trg\\mtaluk"
 		}
 	},
 	"variables": {
@@ -160,8 +140,7 @@
 						"inputs": [
 							{
 								"referenceName": "SourceDataset_bol",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
@@ -178,7 +157,6 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SourceDataset_bol')]",
 				"[concat(variables('factoryId'), '/datasets/DestinationDataset_bol')]"
 			]
 		},
@@ -240,121 +218,6 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "listings"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase2')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SourceDataset_bol')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SqlServer_mtaluk",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [
-					{
-						"name": "id",
-						"type": "varchar"
-					},
-					{
-						"name": "name",
-						"type": "varchar"
-					},
-					{
-						"name": "description",
-						"type": "varchar"
-					},
-					{
-						"name": "price",
-						"type": "decimal",
-						"precision": 10,
-						"scale": 2
-					},
-					{
-						"name": "user_id",
-						"type": "varchar"
-					},
-					{
-						"name": "views",
-						"type": "int",
-						"precision": 10
-					}
-				],
-				"typeProperties": {
-					"schema": "dbo",
-					"table": "listings"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/SqlServer_mtaluk')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase_DB01_MT')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "azure_sql_db_mt01 on azure-sql-server-mt.database.windows.net",
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureSqlDatabase_DB01_MT_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/SqlServer_mtaluk')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "on mtalu-lap10a",
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"connectionString": "[parameters('SqlServer_mtaluk_connectionString')]",
-					"userName": "[parameters('SqlServer_mtaluk_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('SqlServer_mtaluk_password')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "sh-integrationRuntime1",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/sh-integrationRuntime1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/sh-integrationRuntime1')]",
-			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "SelfHosted",
-				"description": "sh-integrationRuntime1",
-				"typeProperties": {}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase2')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "azure-sql-server-mt.database.windows.net",
-				"annotations": [],
-				"type": "AzureSqlDatabase",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureSqlDatabase2_connectionString')]"
 				}
 			},
 			"dependsOn": []

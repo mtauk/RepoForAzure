@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase_DB01_MT'"
 		},
+		"AzureSqlDatabase2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase2'"
+		},
 		"SqlServer_mtaluk_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'SqlServer_mtaluk'"
@@ -54,12 +58,26 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "azure-sql-server-mt.database.windows.net",
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureSqlDatabase2_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/DestinationDataset_bol')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabase_DB01_MT",
+					"referenceName": "AzureSqlDatabase2",
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
@@ -114,7 +132,7 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase_DB01_MT')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureSqlDatabase2')]"
 			]
 		},
 		{
@@ -227,8 +245,7 @@
 								"partitionOption": "None"
 							},
 							"sink": {
-								"type": "AzureSqlSink",
-								"tableOption": "autoCreate"
+								"type": "AzureSqlSink"
 							},
 							"enableStaging": false,
 							"validateDataConsistency": false,

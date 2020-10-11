@@ -14,6 +14,9 @@
 		"SqlServer_mtaluk_password": {
 			"value": ""
 		},
+		"AzureSqlDatabase2_connectionString": {
+			"value": ""
+		},
 		"SqlServer_mtaluk_properties_typeProperties_userName": {
 			"value": "trg\\mtaluk"
 		}
