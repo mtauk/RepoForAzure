@@ -1,0 +1,44 @@
+{
+	"name": "SqlServerTable2_migodse2e01",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer2_ON_MIGODSE2E01",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "varchar"
+			},
+			{
+				"name": "name",
+				"type": "varchar"
+			},
+			{
+				"name": "description",
+				"type": "varchar"
+			},
+			{
+				"name": "price",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "user_id",
+				"type": "varchar"
+			},
+			{
+				"name": "views",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "listings"
+		}
+	}
+}
