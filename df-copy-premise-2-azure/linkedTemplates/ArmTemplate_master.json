@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "df-copy-premise-2-azure"
 		},
+		"AzureSqlDatabase2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase2'"
+		},
 		"AzureSqlDatabase_DB01_MT_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase_DB01_MT'"
@@ -19,11 +23,19 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SqlServer_mtaluk'"
 		},
-		"AzureSqlDatabase2_connectionString": {
+		"SqlServer2_ON_MIGODSE2E01_connectionString": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase2'"
+			"metadata": "Secure string for 'connectionString' of 'SqlServer2_ON_MIGODSE2E01'"
+		},
+		"SqlServer2_ON_MIGODSE2E01_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SqlServer2_ON_MIGODSE2E01'"
 		},
 		"SqlServer_mtaluk_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "trg\\mtaluk"
+		},
+		"SqlServer2_ON_MIGODSE2E01_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "trg\\mtaluk"
 		},
@@ -54,11 +66,11 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"AzureSqlDatabase_DB01_MT_connectionString": {
-						"value": "[parameters('AzureSqlDatabase_DB01_MT_connectionString')]"
-					},
 					"AzureSqlDatabase2_connectionString": {
 						"value": "[parameters('AzureSqlDatabase2_connectionString')]"
+					},
+					"AzureSqlDatabase_DB01_MT_connectionString": {
+						"value": "[parameters('AzureSqlDatabase_DB01_MT_connectionString')]"
 					},
 					"SqlServer_mtaluk_connectionString": {
 						"value": "[parameters('SqlServer_mtaluk_connectionString')]"
@@ -66,8 +78,17 @@
 					"SqlServer_mtaluk_password": {
 						"value": "[parameters('SqlServer_mtaluk_password')]"
 					},
+					"SqlServer2_ON_MIGODSE2E01_connectionString": {
+						"value": "[parameters('SqlServer2_ON_MIGODSE2E01_connectionString')]"
+					},
+					"SqlServer2_ON_MIGODSE2E01_password": {
+						"value": "[parameters('SqlServer2_ON_MIGODSE2E01_password')]"
+					},
 					"SqlServer_mtaluk_properties_typeProperties_userName": {
 						"value": "[parameters('SqlServer_mtaluk_properties_typeProperties_userName')]"
+					},
+					"SqlServer2_ON_MIGODSE2E01_properties_typeProperties_userName": {
+						"value": "[parameters('SqlServer2_ON_MIGODSE2E01_properties_typeProperties_userName')]"
 					}
 				}
 			},

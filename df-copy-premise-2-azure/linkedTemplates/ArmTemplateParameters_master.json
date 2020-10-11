@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "df-copy-premise-2-azure"
 		},
+		"AzureSqlDatabase2_connectionString": {
+			"value": ""
+		},
 		"AzureSqlDatabase_DB01_MT_connectionString": {
 			"value": ""
 		},
@@ -14,10 +17,16 @@
 		"SqlServer_mtaluk_password": {
 			"value": ""
 		},
-		"AzureSqlDatabase2_connectionString": {
+		"SqlServer2_ON_MIGODSE2E01_connectionString": {
+			"value": ""
+		},
+		"SqlServer2_ON_MIGODSE2E01_password": {
 			"value": ""
 		},
 		"SqlServer_mtaluk_properties_typeProperties_userName": {
+			"value": "trg\\mtaluk"
+		},
+		"SqlServer2_ON_MIGODSE2E01_properties_typeProperties_userName": {
 			"value": "trg\\mtaluk"
 		},
 		"containerUri": {
