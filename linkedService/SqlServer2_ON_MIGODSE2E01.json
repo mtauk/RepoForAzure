@@ -1,0 +1,18 @@
+{
+	"name": "SqlServer2_ON_MIGODSE2E01",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "SqlServer db 2 _ON_MIGODSE2E01",
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=True;data source=MIGODSE2E01;initial catalog=AzureDestination",
+			"userName": "trg\\mtaluk",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJhNDAxOTU1Yy0wZTc3LTQyMDYtYWY3Yi0wNDUyZjJkYWVmMTMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "sh-integrationRuntime1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
