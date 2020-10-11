@@ -4,7 +4,8 @@
 		"description": "CopyPipeline_Premise_2_Azure",
 		"activities": [
 			{
-				"name": "Copy_bol",
+				"name": "Copy_Data_from_Premise_to_Azure",
+				"description": "Copy_Data_from_Premise_to_Azure",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
