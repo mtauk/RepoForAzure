@@ -2,7 +2,7 @@
 	"name": "DestinationDataset_bol",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureSqlDatabase_DB01_MT",
+			"referenceName": "AzureSqlDatabase2",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
