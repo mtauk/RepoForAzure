@@ -33,7 +33,7 @@
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "AzureSqlDatabase_DB01_MT",
+				"description": "azure_sql_db_mt01 on azure-sql-server-mt.database.windows.net",
 				"annotations": [],
 				"type": "AzureSqlDatabase",
 				"typeProperties": {
@@ -61,6 +61,12 @@
 				"linkedServiceName": {
 					"referenceName": "AzureSqlDatabase_DB01_MT",
 					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"table": {
+						"type": "String",
+						"defaultValue": "listings_d"
+					}
 				},
 				"annotations": [],
 				"type": "AzureSqlTable",
@@ -221,7 +227,8 @@
 								"partitionOption": "None"
 							},
 							"sink": {
-								"type": "AzureSqlSink"
+								"type": "AzureSqlSink",
+								"tableOption": "autoCreate"
 							},
 							"enableStaging": false,
 							"validateDataConsistency": false,
@@ -321,7 +328,9 @@
 							{
 								"referenceName": "DestinationDataset_bol",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"table": "listings_d"
+								}
 							}
 						]
 					}
