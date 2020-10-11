@@ -1,0 +1,70 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "df-copy-premise-2-azure"
+		},
+		"AzureSqlDatabase_DB01_MT_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase_DB01_MT'"
+		},
+		"SqlServer_mtaluk_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SqlServer_mtaluk'"
+		},
+		"SqlServer_mtaluk_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SqlServer_mtaluk'"
+		},
+		"SqlServer_mtaluk_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "trg\\mtaluk"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "df-copy-premise-2-azure_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureSqlDatabase_DB01_MT_connectionString": {
+						"value": "[parameters('AzureSqlDatabase_DB01_MT_connectionString')]"
+					},
+					"SqlServer_mtaluk_connectionString": {
+						"value": "[parameters('SqlServer_mtaluk_connectionString')]"
+					},
+					"SqlServer_mtaluk_password": {
+						"value": "[parameters('SqlServer_mtaluk_password')]"
+					},
+					"SqlServer_mtaluk_properties_typeProperties_userName": {
+						"value": "[parameters('SqlServer_mtaluk_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

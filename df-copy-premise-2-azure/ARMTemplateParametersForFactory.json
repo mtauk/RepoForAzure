@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "df-copy-premise-2-azure"
+		},
+		"AzureSqlDatabase_DB01_MT_connectionString": {
+			"value": ""
+		},
+		"SqlServer_mtaluk_connectionString": {
+			"value": ""
+		},
+		"SqlServer_mtaluk_password": {
+			"value": ""
+		},
+		"SqlServer_mtaluk_properties_typeProperties_userName": {
+			"value": "trg\\mtaluk"
+		}
+	}
+}
