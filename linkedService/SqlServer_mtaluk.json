@@ -1,0 +1,18 @@
+{
+	"name": "SqlServer_mtaluk",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "on mtalu-lap10a",
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=True;data source=mtalu-lap10a;initial catalog=AzureDestination",
+			"userName": "trg\\mtaluk",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJmYTM1YzNkYy03ZmJkLTQ4YjUtYmRkZi1iYTIxMjczYTE5NDkiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "sh-integrationRuntime1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
