@@ -5,6 +5,12 @@
 			"referenceName": "AzureSqlDatabase_DB01_MT",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"table": {
+				"type": "String",
+				"defaultValue": "listings_d"
+			}
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [

@@ -32,7 +32,8 @@
 						"partitionOption": "None"
 					},
 					"sink": {
-						"type": "AzureSqlSink"
+						"type": "AzureSqlSink",
+						"tableOption": "autoCreate"
 					},
 					"enableStaging": false,
 					"validateDataConsistency": false,
@@ -130,7 +131,10 @@
 				"outputs": [
 					{
 						"referenceName": "DestinationDataset_bol",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"table": "listings_d"
+						}
 					}
 				]
 			}
